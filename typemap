@@ -1,0 +1,5 @@
+# Taken from Net::SSLeay
+TYPEMAP
+RSA *		T_IV
+X509 *		T_IV
+BIO *           T_IV
