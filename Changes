@@ -4,3 +4,6 @@ Revision history for Perl extension Business::PayPal::EWP.
 	- original version; created by h2xs 1.23 with options
 		-X -b 5.6.1 -n Business::PayPal::EWP --use-new-tests
 
+0.02  Tue Dec 7 2004
+	* Added cert_id to documentation
+	* Added const char * to local typemap (it's not in 5.6.0 on Darwin, at least)

@@ -10,7 +10,7 @@ our %EXPORT_TAGS = ( 'all' => [ qw(SignAndEncrypt) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our $VERSION='0.01';
+our $VERSION='0.02';
 require XSLoader;
 XSLoader::load('Business::PayPal::EWP', $VERSION);
 
@@ -20,7 +20,7 @@ sub SignAndEncrypt {
     my $cert=shift;
     my $ppcert=shift;
     my $retval=1;
-    my ($bio,$RSA,$ppX509,$X509,$pKey,$p7,$memBio,$p7Bio)=(undef,undef,undef,undef,undef,undef,undef,undef);
+    my ($bio,$RSA,$ppX509,$X509)=(undef,undef,undef,undef);
     Net::SSLeay::ERR_load_crypto_strings();
     Business::PayPal::EWP::OpenSSL_add_all_algorithms();
     # Load PayPal cert
@@ -98,7 +98,7 @@ Business::PayPal::EWP - Perl extension for PayPal's Encrypted Website Payments
 
   use Business::PayPal::EWP qw(SignAndEncrypt);
   ...
-  my $form="cmd=_xclick,business=...";
+  my $form="cert_id=123ABC,cmd=_xclick,business=...";
   my $cert="/path/to/mycert.crt";
   my $key="/path/to/mycert.key";
   my $ppcert="/path/to/paypalcert.pem";

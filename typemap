@@ -3,3 +3,4 @@ TYPEMAP
 RSA *		T_IV
 X509 *		T_IV
 BIO *           T_IV
+const char *	T_PV
