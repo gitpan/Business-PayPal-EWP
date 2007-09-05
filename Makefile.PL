@@ -164,6 +164,7 @@ if ($windows) {
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 my %configParams = (
+    (MM->can('signature_target') ? (SIGN => 1) : ()),
     NAME	=> 'Business::PayPal::EWP',
     VERSION_FROM => 'lib/Business/PayPal/EWP.pm', # finds $VERSION
     PREREQ_PM   => {'Test::More'  =>  0, 'Net::SSLeay' => 0}, # e.g., Module::Name => 1.1

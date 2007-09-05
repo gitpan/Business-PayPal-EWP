@@ -1,0 +1,38 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.53.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 ae01c9822318c7e259396da0f389cab27c86da04 Changes
+SHA1 a7d9a5ba0287a6d533b29bda3043357bbc6afc05 EWP.xs
+SHA1 57b0d3395ab13fbe4981bd2a35dcb4a9c694dc9f MANIFEST
+SHA1 ab441608b3618156e87b61d22543035caf5d0bd9 MANIFEST.SKIP
+SHA1 1fc076d398ab7966c13220fb2051513a9a318b95 META.yml
+SHA1 3a5f6ccb128f6bfb462d17ed2c559dcd0c1ab0fd Makefile.PL
+SHA1 9e92a81c94416c67adace1b4eb37e9324b1e084f README
+SHA1 4594c273d7b4866928e199da66847ead3f99ba86 lib/Business/PayPal/EWP.pm
+SHA1 f500ea0379977ddc525c5d50d4177909b64c7549 paypal.pem
+SHA1 c992680bd0cfad8c0fac6b28d7b33c56f268ec3d ppport.h
+SHA1 cbdb7634f26cfb448199b21e9b1db67983f31c00 t/00signature.t
+SHA1 4ba49ae74e714d8cb37ae43afaf12fa6a265d49d t/01load.t
+SHA1 9fab73a18740678f1890669f7b3406b606671b18 test.crt
+SHA1 f79fc0d9ff99468d5d5fd32536e63af88a423e4c test.key
+SHA1 0ffdb2b3efcb0e7eba80d2ce63ef385ea935a164 typemap
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.1 (GNU/Linux)
+
+iD8DBQFG3rA+7bEFiW+VItgRArxiAJ0b/1FzTUOWAmUrV2S2u2eRA/uaKgCeNsbA
+TAaQHq4S7L7hkmPBS8Q4VE4=
+=7cDL
+-----END PGP SIGNATURE-----

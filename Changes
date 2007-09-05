@@ -7,3 +7,7 @@ Revision history for Perl extension Business::PayPal::EWP.
 0.02  Tue Dec 7 2004
 	* Added cert_id to documentation
 	* Added const char * to local typemap (it's not in 5.6.0 on Darwin, at least)
+
+0.03  Wed Sep 5 2007
+        * Fixed problem exporting SignAndEncrypt - ghenry@cpan.org
+        * Signed distribution

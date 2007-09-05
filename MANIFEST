@@ -2,7 +2,8 @@ Changes
 Makefile.PL
 MANIFEST
 README
-t/Business-PayPal-EWP.t
+t/00signature.t
+t/01load.t
 lib/Business/PayPal/EWP.pm
 paypal.pem
 test.crt
@@ -11,5 +12,5 @@ typemap
 EWP.xs
 ppport.h
 META.yml
-
-
+SIGNATURE
+MANIFEST.SKIP

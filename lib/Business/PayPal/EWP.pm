@@ -7,10 +7,10 @@ use Net::SSLeay;
 
 require Exporter;
 our %EXPORT_TAGS = ( 'all' => [ qw(SignAndEncrypt) ] );
-
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
+our $VERSION='0.03';
+our @ISA = qw(Exporter);
 
-our $VERSION='0.02';
 require XSLoader;
 XSLoader::load('Business::PayPal::EWP', $VERSION);
 
