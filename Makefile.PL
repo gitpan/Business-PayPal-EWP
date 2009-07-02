@@ -8,7 +8,6 @@
 # 20.8.2001, tweaked path editing, thanks to Gordon Lack
 #            <gml4410@@ggr.co.uk> --Sampo
 # 19.4.2003, applied some RH9 fixes from priit.randla@eyp._ee --Sampo
-# $Id: Makefile.PL,v 1.13 2003/06/13 21:14:39 sampo Exp $
 #
 # Configuration script for Net::SSLeay.pm
 # Re-used for Business::PayPal::EWP
@@ -116,7 +115,7 @@ if ($windows) {
     warn "RSAREF build on Windows not supported out of box" if $rsaref;
     $libs = "-llibeay32 -lssleay32";
 
-    warn "Be sure to use the same compiler and options to compile your OpenSSL, perl, and Net::SSLeay. Mixing and matching compilers is not supported. (Currently I do not have a way to check this on Windows platform.)\n";
+    warn "Be sure to use the same compiler and options to compile your OpenSSL, perl, and Business::PayPal::EWP. Mixing and matching compilers is not supported. (Currently I do not have a way to check this on Windows platform.)\n";
 } else {
     ### There is some confusion over the correct ordering
     ### of these libraries. Tarang Kumar Patel <mombasa@ptolemy.arc.nasa.gov>
@@ -138,7 +137,7 @@ if ($windows) {
 	    warn "*** $exe_path appears to be compiled with $cc ($cc_et_alia) while perl is compiled with $Config{cc}. Both must be compiled with the same compiler and flags. Mixing and matching compilers is not supported.";
 	}
     } else {
-	warn "*** Could not figure out which C compiler was used to compile $exe_path. It is essentiall that OpenSSL, perl, and Net::SSLeay are compiled with the same compiler and flags. Mixing and matching compilers is not supported.";
+	warn "*** Could not figure out which C compiler was used to compile $exe_path. It is essentiall that OpenSSL, perl, and Business::PayPal::EWP are compiled with the same compiler and flags. Mixing and matching compilers is not supported.";
     }
 
     ### When using aCC under HP-UX additional `+e' flag must be passed.
@@ -167,7 +166,7 @@ my %configParams = (
     (MM->can('signature_target') ? (SIGN => 1) : ()),
     NAME	=> 'Business::PayPal::EWP',
     VERSION_FROM => 'lib/Business/PayPal/EWP.pm', # finds $VERSION
-    PREREQ_PM   => {'Test::More'  =>  0, 'Net::SSLeay' => 0}, # e.g., Module::Name => 1.1
+    PREREQ_PM   => {'Test::More'  =>  0}, # e.g., Module::Name => 1.1
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/Business/PayPal/EWP.pm', # retrieve abstract from module
        AUTHOR         => 'Issac Goldstand <margol@beamartyr.net> ') : ()),

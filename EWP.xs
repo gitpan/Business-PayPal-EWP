@@ -21,15 +21,15 @@
 
 char* sign_and_encrypt(const char *data, RSA *rsa, X509 *x509, X509 *PPx509, bool verbose)
 {
-	char *ret;
-	EVP_PKEY *pkey;
-	PKCS7 *p7;
-	BIO *memBio;
-	BIO *p7bio;
-	BIO *bio;
-	PKCS7_SIGNER_INFO* si;
-	int len;
-	char *str;
+	char *ret = NULL;
+	EVP_PKEY *pkey = NULL;
+	PKCS7 *p7 = NULL;
+	BIO *memBio = NULL;
+	BIO *p7bio = NULL;
+	BIO *bio = NULL;
+	PKCS7_SIGNER_INFO* si = NULL;
+	int len = 0;
+	char *str = NULL;
 
 	pkey = EVP_PKEY_new();
 
@@ -115,6 +115,7 @@ char* sign_and_encrypt(const char *data, RSA *rsa, X509 *x509, X509 *PPx509, boo
 	}
 
 	BIO_flush(bio);
+
 	len = BIO_get_mem_data(bio, &str);
 	Newz(1,ret,sizeof(char)*(len+1),char);
 	memcpy(ret, str, len);
@@ -135,34 +136,84 @@ end:
 	return ret;
 }
 
+
+
+char* SignAndEncryptCImpl(char* sCmdTxt, char* keyPath, char* certPath, char* payPalCertPath, bool verbose)
+{
+    BIO     *bio;
+    X509    *x509 = NULL;
+    X509    *PPx509 = NULL;
+    RSA     *rsa = NULL;
+    char    *enc = NULL;
+
+    ERR_load_crypto_strings();
+    OpenSSL_add_all_algorithms();
+
+    // Load the PayPal Cert File
+    if ((bio = BIO_new_file(payPalCertPath, "rt")) == NULL) {
+        printf("Fatal Error: Failed to open %s\n", payPalCertPath);
+        goto end;
+    }
+    if ((PPx509 = PEM_read_bio_X509(bio, NULL, NULL, NULL)) == NULL) {
+        printf("Fatal Error: Failed to read Paypal certificate from %s\n", payPalCertPath);
+        goto end;
+    }
+    BIO_free(bio);
+
+    // Load the User Cert File
+    if ((bio = BIO_new_file(certPath, "rt")) == NULL) {
+        printf("Fatal Error: Failed to open %s\n", certPath);
+        goto end;
+    }
+    if ((x509 = PEM_read_bio_X509(bio, NULL, NULL, NULL)) == NULL) {
+        printf("Fatal Error: Failed to read certificate from %s\n", certPath);
+        goto end;
+    }
+    BIO_free(bio);
+
+    // Load the User Key File
+    if ((bio = BIO_new_file(keyPath, "rt")) == NULL)
+    {
+        printf("Fatal Error: Failed to open %s\n", keyPath);
+        goto end;
+    }
+    if ((rsa = PEM_read_bio_RSAPrivateKey(bio, NULL, NULL, NULL)) == NULL)
+    {
+        printf("Fatal Error: Unable to read RSA key %s\n", keyPath);
+        goto end;
+    }
+    BIO_free(bio);
+    bio = NULL;
+
+   // Process payload into blob.
+    enc = sign_and_encrypt(sCmdTxt, rsa, x509, PPx509, verbose);
+
+end:
+    if (bio) {
+        BIO_free_all(bio);
+    }
+    if (x509) {
+        X509_free(x509);
+    }
+    if (PPx509) {
+        X509_free(PPx509);
+    }
+    if (rsa) {
+        RSA_free(rsa);
+    }
+    return enc;
+}
+
+
+
 MODULE = Business::PayPal::EWP		PACKAGE = Business::PayPal::EWP
 PROTOTYPES: DISABLE
 
-void
-OpenSSL_add_all_algorithms()
-
-void
-BIO_free_all(bio)
-    BIO* bio
-
-X509*
-PEM_read_bio_X509(bp,x,cb,u)
-    BIO* bp
-    void* x
-    char* cb
-    void* u
-
-RSA*
-PEM_read_bio_RSAPrivateKey(bp,x,cb,u)
-    BIO* bp
-    void* x
-    char* cb
-    void* u
-
 char *
-sign_and_encrypt(data,rsa,x509,PPx509,verbose)
-    const char* data
-    RSA* rsa
-    X509* x509
-    X509* PPx509
-    bool verbose
+SignAndEncryptCImpl(sCmdTxt,certPath,keyPath,payPalCertPath,verbose)
+    char* sCmdTxt
+    char* certPath
+    char* keyPath
+    char* payPalCertPath
+    bool  verbose
+   
