@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.53.
+signed via the Module::Signature module, version 0.61.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,35 +14,35 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 c0aed50c7ffee5c191a0f3813800c1ca55942c61 Changes
-SHA1 8df43581fa5533b06719376feda1f7dbb935a59d EWP.xs
+SHA1 05400431e36019bd6b1e5b6a278ba165eb5f9203 Changes
+SHA1 fbc3f67f4a0fd7a6e523f371cf232497ed23bb71 EWP.xs
 SHA1 57b0d3395ab13fbe4981bd2a35dcb4a9c694dc9f MANIFEST
-SHA1 ab441608b3618156e87b61d22543035caf5d0bd9 MANIFEST.SKIP
-SHA1 f849a8c9e596907d42235563ebef328954a486c6 META.yml
-SHA1 5e29d1dde9fe2483a3e93bf71de3eba50893211e Makefile.PL
-SHA1 1e6f278ce81bce22c558575316f141625da7cc68 README
-SHA1 751ad1b991c52f10850b16844770813cda58b62a lib/Business/PayPal/EWP.pm
+SHA1 0d2704f2525a3fb191f92f871417cad6ddeb1edf MANIFEST.SKIP
+SHA1 dd8763b5f67b658830dfc0872c371ce99b50fa89 META.yml
+SHA1 f0b73b220a267558d8248605859c7dfef707aadf Makefile.PL
+SHA1 c361f1d2466b8ca18977b290eec8505e940ac133 README
+SHA1 7ab89a37f48a6b58a29a93145793436a6e3d179d lib/Business/PayPal/EWP.pm
 SHA1 f500ea0379977ddc525c5d50d4177909b64c7549 paypal.pem
-SHA1 c992680bd0cfad8c0fac6b28d7b33c56f268ec3d ppport.h
-SHA1 cbdb7634f26cfb448199b21e9b1db67983f31c00 t/00signature.t
-SHA1 4ba49ae74e714d8cb37ae43afaf12fa6a265d49d t/01load.t
+SHA1 eb1cb38990773cd4d5b368909b8da3f79cbf2657 ppport.h
+SHA1 ad7d30f2b8e7f62006bd64a64759049af0cd97bb t/00signature.t
+SHA1 0a1ade79f60f7be7f5099762343428903bfd799d t/01load.t
 SHA1 9fab73a18740678f1890669f7b3406b606671b18 test.crt
 SHA1 f79fc0d9ff99468d5d5fd32536e63af88a423e4c test.key
-SHA1 0ffdb2b3efcb0e7eba80d2ce63ef385ea935a164 typemap
+SHA1 f2aaa9da3b3e74fef8b3db57f9ec0516c2c7ba31 typemap
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.1 (GNU/Linux)
+Version: GnuPG v1.4.5 (GNU/Linux)
 
-iQIVAwUBSkx1fO2kAdlF+QyeAQL9RQ/9GPvzREazkUegrdhcf0lT2TPsgmISaEGG
-ixULYcC7yjMkSxWsetdS86KFJH4w+rc93vf8jmjZcTrPXv+ClTNsa+eEEqkX0V8m
-+MLSvDMSgriXURAHpG5o4O+4UDP7R4Feyxxdux1dAp9WnPteQAfqZZZws0mcsSiQ
-0tSpEei1o3Y8PuDzFUAwVU8yt3qw+3vP/QtnY9Qk9cy2Z8atyQQNrqBvQHmm2pTa
-CCXRoBOV9xqNzSUuR3uerUlMHjfoSNubZvzSqS4exW3G7zvmq5E8i5g5naqcRfN8
-MUmNv4+tezJ3eAHHQGuzq5uCxq1SqXST9KBWoznzT3YAqrcO3+NFmMz+Qc6E+hU0
-Q6MxXQtp0aLeJwZpildGICq6Gj49IvDwsXRRkUR1fSfNjc2Xi1aItvFP8rR49B5q
-+3ax8OntitYJK/f7QkFPQ207PG+C8VusVEtKOTCyW1xKqDtrl0hx1qXidb95ukhE
-zUeQdCCHnxn1yJDLIhLjY524Y7oWKEGmmPL6c3TcXuAYxQ1cjz5WNmU1nz2xWvAO
-aDD7WuAhIauKM6G2NTLBFgQGiP4uEa3eHCyOBi0QwkEnRiK46e/rYHnGo2/y25Xg
-Oo5lY9LYX0FPnoZuN+nCWu5yyAoT8W9NtVI06xMaIbgmjNxm/nNq+L25ykc/k1sj
-fhiiaB3yw2k=
-=zz8u
+iQIVAwUBS0yQRe2kAdlF+QyeAQI7EQ/7BaxFkXGpw8LKbGSt+GZBzPl+sLEsCnbd
+AWGCWoyuQ6Z/QLj9Pkc5zisQNvtLlkk+HMh4jE3RUh0INY8evMSLdvBUuxJuC72W
+Bfws8g94VTnTLN5PcUPg1MvOS831EjBae7IFFxb4LdZlnC57Gw5cnaKbxVDMwX4L
+yVwA+vd++zubJlTW6VxPbvWdUa1qCWnlawuD19DbuVhbfoSHASoB4fYBfK63ze1k
+LRYpmHaYNSSCui+DEMs1DNJH8QQ35dbn6dkDU7ib54Zdjhi4ywpuJAGde/hrjFgi
++6lLagJplweeeDXjWjTPQmbu2vFvuwG5VmRjFeXj0QD6CTAfYtmPQYaNALR9Jzbo
+CCJ+ptuar+Wprz+xY/KS17E9j2WEYhcfyAt16w56lhDDeFoxgTiGQoLI5c6U+Jjw
+5NwyhPOp+KDMF+kDOLXJD/C6aIpUVgAvPdZXzig8AywHVU5WE+czZXsZf+UPsq8/
+1mQb9KGxsghvDjJOZOKQ+dm0omsHa3pWMU3WZUz1gcoA7/nchgniqr4eREaNspNp
+/qfHuFGlfYmibRz/DvfzNoEI1Hgqlbm+aE/Awe6EP3QoTGA+NM5iCQSVicq+z9tV
+5WeQ5PjebTaqrTM9PcTLAprRi0UvBqSDHaxwwwH0mJ2/rahClLlYIID65QLMo9gk
+eikVOACJqnA=
+=nSUv
 -----END PGP SIGNATURE-----

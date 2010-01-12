@@ -7,7 +7,7 @@ use warnings;
 require Exporter;
 our %EXPORT_TAGS = ( 'all' => [ qw(SignAndEncrypt) ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-our $VERSION='1.01';
+our $VERSION='1.02';
 our @ISA = qw(Exporter);
 
 require XSLoader;
@@ -20,7 +20,7 @@ sub SignAndEncrypt {
     my $ppcert=shift;
 
     # Reformat
-    $formdata=~s/,/\n/g;
+    #$formdata=~s/,/\n/g;
 
     # Encrypt and sign
     my $retval = Business::PayPal::EWP::SignAndEncryptCImpl($formdata,$key,$cert,$ppcert,0);
@@ -40,7 +40,12 @@ Business::PayPal::EWP - Perl extension for PayPal's Encrypted Website Payments
 
   use Business::PayPal::EWP qw(SignAndEncrypt);
   ...
-  my $form="cert_id=123ABC,cmd=_xclick,business=...";
+  my $form=<<EOS;
+  cert_id=123ABC
+  cmd=_xclick
+  business=...
+  EOS
+
   my $cert="/path/to/mycert.crt";
   my $key="/path/to/mycert.key";
   my $ppcert="/path/to/paypalcert.pem";
