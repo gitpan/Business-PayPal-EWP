@@ -98,6 +98,8 @@ char* sign_and_encrypt(const char *data, RSA *rsa, X509 *x509, X509 *PPx509, boo
 		printf("OpenSSL Error: %s\n", ERR_error_string(ERR_get_error(), NULL));
 		goto end;
 	}
+    /* p7bio now owns memBio, so don't try to free it */
+    memBio = NULL; // RT #6150, RT #48877
 
 	//Pump data to special PKCS7 BIO. This encrypts and signs it.
 	BIO_write(p7bio, data, strlen(data));

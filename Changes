@@ -18,3 +18,6 @@ Revision history for Perl extension Business::PayPal::EWP.
 1.02  Jan 12 2010
     (tbusch) Form items separated by newlines instead of commas
 
+1.03  Aug 24 2012
+    (tbusch) fixed double free issue (RT #6150, RT #48877)
+

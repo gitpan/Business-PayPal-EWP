@@ -7,7 +7,7 @@ use warnings;
 require Exporter;
 our %EXPORT_TAGS = ( 'all' => [ qw(SignAndEncrypt) ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-our $VERSION='1.02';
+our $VERSION='1.03';
 our @ISA = qw(Exporter);
 
 require XSLoader;
